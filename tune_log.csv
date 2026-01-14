@@ -1,0 +1,6 @@
+﻿fold,modern_type,modern_params,rf_type,rf_params
+1,LGBMRegressor,{},RandomForestRegressor,{}
+2,LGBMRegressor,{},RandomForestRegressor,{}
+3,LGBMRegressor,{},RandomForestRegressor,{}
+4,LGBMRegressor,{},RandomForestRegressor,{}
+5,LGBMRegressor,{},RandomForestRegressor,{}

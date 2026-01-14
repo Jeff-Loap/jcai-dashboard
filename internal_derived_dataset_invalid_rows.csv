@@ -1,0 +1,1 @@
+﻿trade_date,ticker,open,high,low,close,volume,turnover,ret_1,ret_5,ret_20,vol_10,vol_20,sma_5,sma_10,sma_20,ema_12,ema_26,ma_gap_5_20,ema_gap_12_26,macd,macd_signal,macd_hist,rsi,kdj_k,kdj_d,atr,pdi,mdi,adx,bb_mid,bb_up,bb_dn,bb_bw,bb_pb,obv,vpt,mfi,cci,vwap_win,z_close_20,z_turnover_20,stock_name,currency_code,currency_name,anon_id,alpha_signal,risk_score,_reason

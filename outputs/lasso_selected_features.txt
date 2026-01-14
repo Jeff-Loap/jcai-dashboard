@@ -1,0 +1,10 @@
+adx_L1_z120
+vol_10_L1_z60
+vol_10_L1_z120
+vol_20_L1_z60
+vol_20_L1_z120
+adx_L1_z60
+ret_1_L1_z60
+bb_bw_L1_z60
+bb_bw_L1_z120
+ret_1_L1_z120

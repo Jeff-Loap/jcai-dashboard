@@ -1,0 +1,6 @@
+{
+  "ridge_alpha": 0.3,
+  "rf_n_estimators": 400,
+  "rf_min_samples_leaf": 20,
+  "rf_max_features": 0.5
+}

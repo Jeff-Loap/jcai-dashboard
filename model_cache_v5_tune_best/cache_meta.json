@@ -1,0 +1,42 @@
+{
+  "version": 8,
+  "data_sig": "2177c94aafd4678d3a6ac5d0401a117dd10f1939",
+  "cfg_sig": "50698a6e769e4f70aaa9ab77b67a7938fc787c00",
+  "n_splits": 5,
+  "tuned_params": {
+    "ridge_alpha": 0.3,
+    "rf_n_estimators": 400,
+    "rf_min_samples_leaf": 10,
+    "rf_max_features": 0.5
+  },
+  "has_tuned": true,
+  "selected_cols_each_fold": [
+    {
+      "fold": 1,
+      "n_sel": 60,
+      "best_lasso_alpha": null
+    },
+    {
+      "fold": 2,
+      "n_sel": 60,
+      "best_lasso_alpha": null
+    },
+    {
+      "fold": 3,
+      "n_sel": 60,
+      "best_lasso_alpha": null
+    },
+    {
+      "fold": 4,
+      "n_sel": 60,
+      "best_lasso_alpha": null
+    },
+    {
+      "fold": 5,
+      "n_sel": 60,
+      "best_lasso_alpha": null
+    }
+  ],
+  "modern_gb_backend_alpha": "LightGBM::LGBMRegressor",
+  "modern_gb_backend_risk": "LightGBM::LGBMRegressor"
+}

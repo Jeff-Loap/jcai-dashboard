@@ -1,0 +1,305 @@
+<html><head><meta charset='utf-8'><title>Backtest Report</title><style>body{font-family:Arial,Helvetica,sans-serif;margin:24px;} table{border-collapse:collapse;} th,td{border:1px solid #ccc;padding:6px 10px;} h1{margin-top:0;} .mono{font-family:Consolas,Menlo,monospace;}</style></head><body>
+<h1>Backtest Report</h1>
+<p><b>Main Model</b>: <span class='mono'>alpha_modernGB(LightGBM::LGBMRegressor)</span></p>
+<p><b>Best TopK Holdings</b>: 3</p>
+<h2>Key Summary</h2>
+<pre class='mono'>{
+  "tuned_params": {
+    "ridge_alpha": 0.3,
+    "rf_n_estimators": 400,
+    "rf_min_samples_leaf": 20,
+    "rf_max_features": 0.5
+  },
+  "ic_rankic_summary": {
+    "ic_mean": -0.0619176584691146,
+    "ic_std": 0.7221733899683175,
+    "ic_ir": -1.3610475961726844,
+    "rankic_mean": -0.07102393225657483,
+    "rankic_std": 0.7129593938691718,
+    "rankic_ir": -1.5813943697271267,
+    "days": 375
+  }
+}</pre>
+<h2>Charts</h2>
+<h3>Equity Gross vs Net</h3><img src="equity_curve_gross_vs_net.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>Equity vs Benchmark</h3><img src="equity_vs_benchmark.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>Drawdown Net</h3><img src="drawdown_net.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>Rolling Sharpe 60D</h3><img src="rolling_sharpe_60d.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>Rolling Sharpe 126D</h3><img src="rolling_sharpe_126d.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>Rolling Sharpe 252D</h3><img src="rolling_sharpe_252d.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>Turnover</h3><img src="turnover_series.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>Leverage</h3><img src="leverage_series.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>IC</h3><img src="ic_timeseries.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>RankIC</h3><img src="rankic_timeseries.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h3>Cost Sensitivity</h3><img src="cost_sensitivity_sharpe.png" style="max-width:1200px;width:100%;border:1px solid #ddd;">
+<h2>Tables</h2>
+<h3>Model Comparison (Top 20)</h3>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>rows</th>
+      <th>mse</th>
+      <th>sharpe_point</th>
+      <th>sharpe_net</th>
+      <th>ann_ret_net</th>
+      <th>ann_vol_net</th>
+      <th>mdd_net</th>
+      <th>calmar_net</th>
+      <th>turnover_mean</th>
+      <th>topk_holdings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>alpha_modernGB(LightGBM::LGBMRegressor)[topk=3]</td>
+      <td>1125</td>
+      <td>0.00186991</td>
+      <td>-0.482679</td>
+      <td>2.50104</td>
+      <td>0.398429</td>
+      <td>0.13791</td>
+      <td>-0.0621131</td>
+      <td>6.41457</td>
+      <td>0.0480944</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>stack_GBDT+RF-&gt;Ridge[topk=3]</td>
+      <td>1125</td>
+      <td>0.00170551</td>
+      <td>0.164738</td>
+      <td>2.38977</td>
+      <td>0.381608</td>
+      <td>0.139347</td>
+      <td>-0.0634812</td>
+      <td>6.01136</td>
+      <td>0.0345672</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>alpha_GBDT(sklearn)[topk=3]</td>
+      <td>1125</td>
+      <td>0.00203838</td>
+      <td>-0.114579</td>
+      <td>2.36232</td>
+      <td>0.376485</td>
+      <td>0.139392</td>
+      <td>-0.0637948</td>
+      <td>5.9015</td>
+      <td>0.0473348</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>stack_modernGB+RF-&gt;Ridge[TUNED][topk=3]</td>
+      <td>1125</td>
+      <td>0.00168851</td>
+      <td>0.0454569</td>
+      <td>2.34325</td>
+      <td>0.357804</td>
+      <td>0.134396</td>
+      <td>-0.0644885</td>
+      <td>5.54834</td>
+      <td>0.030459</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>alpha_RF[topk=3]</td>
+      <td>1125</td>
+      <td>0.001747</td>
+      <td>-0.429995</td>
+      <td>2.33109</td>
+      <td>0.386056</td>
+      <td>0.144538</td>
+      <td>-0.0593277</td>
+      <td>6.50719</td>
+      <td>0.0473342</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>stack_modernGB+RF-&gt;Ridge[topk=3]</td>
+      <td>1125</td>
+      <td>0.00169014</td>
+      <td>-0.0119541</td>
+      <td>2.29469</td>
+      <td>0.358949</td>
+      <td>0.137807</td>
+      <td>-0.0637548</td>
+      <td>5.63015</td>
+      <td>0.0298224</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>stack_GBDT+RF-&gt;Ridge[topk=2]</td>
+      <td>1125</td>
+      <td>0.00170551</td>
+      <td>0.164738</td>
+      <td>2.08573</td>
+      <td>0.325821</td>
+      <td>0.139887</td>
+      <td>-0.0688896</td>
+      <td>4.72961</td>
+      <td>0.0258516</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>alpha_modernGB(LightGBM::LGBMRegressor)[topk=2]</td>
+      <td>1125</td>
+      <td>0.00186991</td>
+      <td>-0.482679</td>
+      <td>1.91766</td>
+      <td>0.276021</td>
+      <td>0.131604</td>
+      <td>-0.0570934</td>
+      <td>4.83456</td>
+      <td>0.0316308</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>stack_modernGB+RF-&gt;Ridge[TUNED][topk=2]</td>
+      <td>1125</td>
+      <td>0.00168851</td>
+      <td>0.0454569</td>
+      <td>1.8949</td>
+      <td>0.242197</td>
+      <td>0.118134</td>
+      <td>-0.0533092</td>
+      <td>4.54326</td>
+      <td>0.019666</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>alpha_RF[topk=2]</td>
+      <td>1125</td>
+      <td>0.001747</td>
+      <td>-0.429995</td>
+      <td>1.86748</td>
+      <td>0.300194</td>
+      <td>0.146263</td>
+      <td>-0.0679914</td>
+      <td>4.41517</td>
+      <td>0.0311903</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>alpha_GBDT(sklearn)[topk=2]</td>
+      <td>1125</td>
+      <td>0.00203838</td>
+      <td>-0.114579</td>
+      <td>1.80914</td>
+      <td>0.289667</td>
+      <td>0.146473</td>
+      <td>-0.069015</td>
+      <td>4.19715</td>
+      <td>0.0334083</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>stack_GBDT+RF-&gt;Ridge[topk=1]</td>
+      <td>1125</td>
+      <td>0.00170551</td>
+      <td>0.164738</td>
+      <td>1.7526</td>
+      <td>0.247251</td>
+      <td>0.13095</td>
+      <td>-0.0967868</td>
+      <td>2.55459</td>
+      <td>0.0235182</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>stack_modernGB+RF-&gt;Ridge[topk=2]</td>
+      <td>1125</td>
+      <td>0.00169014</td>
+      <td>-0.0119541</td>
+      <td>1.71299</td>
+      <td>0.24053</td>
+      <td>0.130796</td>
+      <td>-0.0714816</td>
+      <td>3.36492</td>
+      <td>0.0169078</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>stack_modernGB+RF-&gt;Ridge[TUNED][topk=1]</td>
+      <td>1125</td>
+      <td>0.00168851</td>
+      <td>0.0454569</td>
+      <td>1.36872</td>
+      <td>0.184788</td>
+      <td>0.13005</td>
+      <td>-0.0925765</td>
+      <td>1.99606</td>
+      <td>0.0173327</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>stack_modernGB+RF-&gt;Ridge[topk=1]</td>
+      <td>1125</td>
+      <td>0.00169014</td>
+      <td>-0.0119541</td>
+      <td>1.33606</td>
+      <td>0.17977</td>
+      <td>0.130036</td>
+      <td>-0.105844</td>
+      <td>1.69843</td>
+      <td>0.0145745</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>alpha_modernGB(LightGBM::LGBMRegressor)[topk=1]</td>
+      <td>1125</td>
+      <td>0.00186991</td>
+      <td>-0.482679</td>
+      <td>0.860301</td>
+      <td>0.0773025</td>
+      <td>0.0913449</td>
+      <td>-0.0594346</td>
+      <td>1.30063</td>
+      <td>0.0292975</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>alpha_GBDT(sklearn)[topk=1]</td>
+      <td>1125</td>
+      <td>0.00203838</td>
+      <td>-0.114579</td>
+      <td>0.784829</td>
+      <td>0.101917</td>
+      <td>0.135256</td>
+      <td>-0.0978993</td>
+      <td>1.04104</td>
+      <td>0.031075</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>alpha_RF[topk=1]</td>
+      <td>1125</td>
+      <td>0.001747</td>
+      <td>-0.429995</td>
+      <td>0.620111</td>
+      <td>0.0787387</td>
+      <td>0.137275</td>
+      <td>-0.109191</td>
+      <td>0.721109</td>
+      <td>0.028857</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Raw Outputs</h2>
+<ul>
+<li><a href="daily_gross_net_equity.csv">daily_gross_net_equity.csv</a></li>
+<li><a href="monthly_performance.csv">monthly_performance.csv</a></li>
+<li><a href="quarterly_performance.csv">quarterly_performance.csv</a></li>
+<li><a href="stability_by_year.csv">stability_by_year.csv</a></li>
+<li><a href="stability_by_regime.csv">stability_by_regime.csv</a></li>
+<li><a href="cost_sensitivity.csv">cost_sensitivity.csv</a></li>
+<li><a href="ic_rankic_daily.csv">ic_rankic_daily.csv</a></li>
+<li><a href="param_sensitivity_table.csv">param_sensitivity_table.csv</a></li>
+<li><a href="ablation_table.csv">ablation_table.csv</a></li>
+<li><a href="alignment_selfcheck.csv">alignment_selfcheck.csv</a></li>
+<li><a href="topk_robustness.csv">topk_robustness.csv</a></li>
+<li><a href="sample_period_sensitivity.csv">sample_period_sensitivity.csv</a></li>
+</ul>
+</body></html>
