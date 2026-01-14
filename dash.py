@@ -8,7 +8,7 @@ import pandas as pd
 import streamlit as st
 
 
-REPORT_DIR_DEFAULT = r"D:\PythonFile\JCAI\data_ak\report_outputs"
+REPORT_DIR_DEFAULT = r"report_outputs"
 
 st.set_page_config(page_title="Model Backtest Dashboard", layout="wide")
 
