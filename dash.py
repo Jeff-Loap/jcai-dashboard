@@ -95,7 +95,6 @@ with tabs[0]:
         k2.metric("Sharpe (net)", f"{sharpe(r):.4f}" if sharpe(r) is not None else "NA")
         k3.metric("Annual Return (net)", f"{ann_ret(r):.2%}" if ann_ret(r) is not None else "NA")
         k4.metric("Max Drawdown (net)", f"{max_dd(r):.2%}")
-
 # ===== Equity/Drawdown =====
 with tabs[1]:
     st.header("Equity / Drawdown")
@@ -110,12 +109,14 @@ with tabs[1]:
         ("rolling_sharpe_252d.png", "Rolling Sharpe (252d)"),
         ("turnover_series.png", "Turnover"),
         ("leverage_series.png", "Leverage"),
+        ("risk_regime_timeline.png", "Risk Regime Timeline"),
     ]
 
     for fn, title in imgs:
         if file_exists(fn):
             st.subheader(title)
             st.image(str(p(fn)), width="stretch")
+
 
 # ===== IC =====
 with tabs[2]:
